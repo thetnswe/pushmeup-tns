@@ -5,13 +5,13 @@ require "pushmeup/version"
 Gem::Specification.new do |s|
   s.name            = 'pushmeup_tns'
   s.version         = Pushmeup::VERSION
-  s.authors         = ["Nicos Karalis"]
-  s.email           = ["nicoskaralis@me.com"]
+  s.authors         = ["Thet Naing Swe"]
+  s.email           = ["thetnswe@gmail.com"]
   
-  s.homepage        = "https://github.com/NicosKaralis/pushmeup"
+  s.homepage        = "https://github.com/thetnswe/pushmeup-tns"
   s.summary         = %q{Send push notifications to Apple devices through ANPS and Android devices through GCM}
   s.description     = <<-DESC
-                        This gem is a wrapper to send push notifications to devices.
+                        Wrapper gem which is modifed and added some features according to what I need in pushmeup gem.
                         Currently it only sends to Android or iOS devices, but more platforms will be added soon.
 
                         With APNS (Apple Push Notifications Service) you can send push notifications to Apple devices.

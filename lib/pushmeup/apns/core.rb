@@ -50,8 +50,18 @@ module APNS
   protected
 
   def self.open_connection
-    raise "The path to your pem file is not set. (APNS.pem = /path/to/cert.pem)" unless self.pem
-    raise "The path to your pem file does not exist!" unless File.exist?(self.pem)
+	if(!self.pem)
+		puts "The path to your pem file is not set. (APNS.pem = /path/to/cert.pem)" 
+		return nil, nil
+	end
+	
+	if(!File.exist?(self.pem))
+		puts "The path to your pem file does not exist!"
+		return nil, nil
+	end
+	
+    #puts "The path to your pem file is not set. (APNS.pem = /path/to/cert.pem)" unless self.pem
+    #puts "The path to your pem file does not exist!" unless File.exist?(self.pem)
     
     context      = OpenSSL::SSL::SSLContext.new
     context.cert = OpenSSL::X509::Certificate.new(File.read(self.pem))
@@ -67,6 +77,16 @@ module APNS
   def self.feedback_connection
     raise "The path to your pem file is not set. (APNS.pem = /path/to/cert.pem)" unless self.pem
     raise "The path to your pem file does not exist!" unless File.exist?(self.pem)
+	
+	if(!self.pem)
+		puts "The path to your pem file is not set. (APNS.pem = /path/to/cert.pem)" 
+		return nil, nil
+	end
+	
+	if(!File.exist?(self.pem))
+		puts "The path to your pem file does not exist!"
+		return nil, nil
+	end
     
     context      = OpenSSL::SSL::SSLContext.new
     context.cert = OpenSSL::X509::Certificate.new(File.read(self.pem))
